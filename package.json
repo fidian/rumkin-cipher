@@ -1,0 +1,29 @@
+{
+    "name": "@fidian/rumkin-cipher",
+    "version": "0.0.0",
+    "description": "Cipher routines for the rumkin.com website.",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "jasmine",
+        "watch": "nodemon --ignore node_modules --exec jasmine"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fidian/rumkin-cipher.git"
+    },
+    "keywords": [],
+    "author": "Tyler Akins <fidian@rumkin.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fidian/rumkin-cipher/issues"
+    },
+    "homepage": "https://github.com/fidian/rumkin-cipher#readme",
+    "devDependencies": {
+        "eslint": "^3.19.0",
+        "jasmine": "^2.6.0",
+        "nodemon": "^1.11.0"
+    },
+    "dependencies": {
+        "package.json": "^2.0.1"
+    }
+}
