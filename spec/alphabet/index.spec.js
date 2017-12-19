@@ -39,7 +39,10 @@ describe("Alphabets", () => {
             describe("translations", () => {
                 Object.keys(instance.translations).forEach((input) => {
                     it(`maps ${input} to base letters`, () => {
-                        instance.findLetterIndexes(input).forEach((index) => {
+                        var translated;
+
+                        translated = instance.translateString(input);
+                        instance.findLetterIndexes(translated).forEach((index) => {
                             expect(index).not.toBe(-1);
                         });
                     });
