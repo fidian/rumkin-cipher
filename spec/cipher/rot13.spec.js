@@ -1,44 +1,38 @@
 "use strict";
 
-var alphabets, rot13, util;
+var cipherTest, rot13;
 
-alphabets = require("../../lib/alphabet/");
 rot13 = require("../../lib/cipher/rot13");
-util = require("../../lib/util/");
+cipherTest = require("./cipher-test")(rot13);
 
 describe("rot13", () => {
-    describe("decipher", () => {
+    cipherTest.bidirectionalTest({
+        description: "rotates English",
+        plaintext: "abcXYZ123-_ß",
+        ciphertext: "nopKLM123-_ß",
+        alphabet: "English"
     });
-    describe("encipher", () => {
-        /**
-         * Run an encipher call
-         *
-         * @param {Alphabet} Alphabet
-         * @param {Object} [options]
-         * @return {string}
-         */
-        function encipher(Alphabet, options) {
-            var message, result;
-
-            message = new util.MessageString("abcXYZ123-_ß");
-            result = rot13.encipher(message, new Alphabet(), options);
-
-            return result.toString();
+    cipherTest.bidirectionalTest({
+        description: "rotates Español",
+        plaintext: "abcXYZ123-_ß",
+        ciphertext: "nñoKLM123-_ß",
+        alphabet: "Español"
+    });
+    cipherTest.bidirectionalTest({
+        description: "rotates numbers",
+        plaintext: "abcXYZ123-_ß",
+        ciphertext: "nopKLM678-_ß",
+        alphabet: "English",
+        options: {
+            rot5Numbers: true
         }
-
-        it("rotates", () => {
-            expect(encipher(alphabets.English)).toBe("nopKLM123-_ß");
+    });
+    describe("translation tests", () => {
+        it("deciphers", () => {
+            expect(cipherTest.decipher("abcXYZ123-_ß", "Deutsche")).toBe("nopKLM123-_ff");
         });
-        it("rotates with a string that should be translated", () => {
-            expect(encipher(alphabets.Deutsche)).toBe("nopKLM123-_ff");
-        });
-        it("rotates with an odd number of letters in alphabet", () => {
-            expect(encipher(alphabets.Español)).toBe("nñoKLM123-_ß");
-        });
-        it("rotates numbers too", () => {
-            expect(encipher(alphabets.English, {
-                rot5Numbers: true
-            })).toBe("nopKLM123-_ß");
+        it("enciphers", () => {
+            expect(cipherTest.encipher("abcXYZ123-_ß", "Deutsche")).toBe("nopKLM123-_ff");
         });
     });
 });
