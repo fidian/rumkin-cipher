@@ -37,7 +37,7 @@ module.exports = (cipherModule) => {
     function decipher(message, alphabet, options) {
         var result;
 
-        message = new util.MessageString(message);
+        message = new util.Message(message);
         alphabet = transformAlphabet(alphabet);
         result = cipherModule.decipher(message, alphabet, options);
 
@@ -55,7 +55,7 @@ module.exports = (cipherModule) => {
     function encipher(message, alphabet, options) {
         var result;
 
-        message = new util.MessageString(message);
+        message = new util.Message(message);
         alphabet = transformAlphabet(alphabet);
         result = cipherModule.encipher(message, alphabet, options);
 
