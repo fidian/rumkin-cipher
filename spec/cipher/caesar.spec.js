@@ -1,32 +1,36 @@
 "use strict";
 
-var caesar, cipherTest;
+var caesar, test;
 
 caesar = require("../../lib/cipher/caesar");
-cipherTest = require("./cipher-test")(caesar);
+test = require("../module-test")(caesar);
 
 describe("caesar", () => {
-    cipherTest.bidirectionalTest({
+    test.both({
+        alphabet: "English",
         description: "rotates English",
-        plaintext: "abcXYZ123-_ß",
-        ciphertext: "bcdYZA123-_ß",
-        alphabet: "English"
+        inText: "bcdYZA123-_ß",
+        outText: "abcXYZ123-_ß"
     });
-    cipherTest.bidirectionalTest({
-        description: "rotates Español",
-        plaintext: "abcXYZ123-_ß",
-        ciphertext: "mnñJKL123-_ß",
+    test.both({
         alphabet: "Español",
+        description: "rotates Español",
+        inText: "mnñJKL123-_ß",
         options: {
             shift: 12
-        }
+        },
+        outText: "abcXYZ123-_ß"
     });
-    describe("translated characters", () => {
-        it("deciphers with a string that should be translated", () => {
-            expect(cipherTest.decipher("abcXYZ123-_ß", "Deutsche")).toBe("zabWXY123-_rr");
-        });
-        it("deciphers with a string that should be translated", () => {
-            expect(cipherTest.encipher("abcXYZ123-_ß", "Deutsche")).toBe("bcdYZA123-_tt");
-        });
+    test.out({
+        alphabet: "Deutsche",
+        description: "deciphers with a string that should be translated",
+        inText: "abcXYZ123-_ß",
+        outText: "zabWXY123-_rr"
+    });
+    test.in({
+        alphabet: "Deutsche",
+        description: "enciphers with a string that should be translated",
+        inText: "bcdYZA123-_tt",
+        outText: "abcXYZ123-_ß"
     });
 });

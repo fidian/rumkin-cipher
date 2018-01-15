@@ -1,38 +1,42 @@
 "use strict";
 
-var cipherTest, rot13;
+var rot13, test;
 
 rot13 = require("../../lib/cipher/rot13");
-cipherTest = require("./cipher-test")(rot13);
+test = require("../module-test")(rot13);
 
 describe("rot13", () => {
-    cipherTest.bidirectionalTest({
-        description: "rotates English",
-        plaintext: "abcXYZ123-_ß",
-        ciphertext: "nopKLM123-_ß",
-        alphabet: "English"
-    });
-    cipherTest.bidirectionalTest({
-        description: "rotates Español",
-        plaintext: "abcXYZ123-_ß",
-        ciphertext: "nñoKLM123-_ß",
-        alphabet: "Español"
-    });
-    cipherTest.bidirectionalTest({
-        description: "rotates numbers",
-        plaintext: "abcXYZ123-_ß",
-        ciphertext: "nopKLM678-_ß",
+    test.both({
         alphabet: "English",
+        description: "rotates English",
+        inText: "nopKLM123-_ß",
+        outText: "abcXYZ123-_ß"
+    });
+    test.both({
+        alphabet: "Español",
+        description: "rotates Español",
+        inText: "nñoKLM123-_ß",
+        outText: "abcXYZ123-_ß"
+    });
+    test.both({
+        alphabet: "English",
+        description: "rotates numbers",
+        inText: "nopKLM678-_ß",
         options: {
             rot5Numbers: true
-        }
+        },
+        outText: "abcXYZ123-_ß"
     });
-    describe("translation tests", () => {
-        it("deciphers", () => {
-            expect(cipherTest.decipher("abcXYZ123-_ß", "Deutsche")).toBe("nopKLM123-_ff");
-        });
-        it("enciphers", () => {
-            expect(cipherTest.encipher("abcXYZ123-_ß", "Deutsche")).toBe("nopKLM123-_ff");
-        });
+    test.out({
+        alphabet: "Deutsche",
+        description: "transatlates when encrypting",
+        inText: "abcXYZ123-_ß",
+        outText: "nopKLM123-_ff"
+    });
+    test.in({
+        alphabet: "Deutsche",
+        description: "transatlates when decrypting",
+        inText: "nopKLM123-_ff",
+        outText: "abcXYZ123-_ß"
     });
 });

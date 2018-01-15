@@ -1,27 +1,27 @@
 "use strict";
 
-var atbash, cipherTest;
+var atbash, test;
 
 atbash = require("../../lib/cipher/atbash");
-cipherTest = require("./cipher-test")(atbash);
+test = require("../module-test")(atbash);
 
 describe("atbash", () => {
-    cipherTest.bidirectionalTest({
+    test.both({
+        alphabet: "English",
         description: "changes low",
-        plaintext: "low",
-        ciphertext: "old",
-        alphabet: "English"
+        inText: "old",
+        outText: "low"
     });
-    cipherTest.bidirectionalTest({
+    test.both({
+        alphabet: "English",
         description: "happens to reverse wizard",
-        plaintext: "wizard",
-        ciphertext: "draziw",
-        alphabet: "English"
+        inText: "draziw",
+        outText: "wizard"
     });
-    cipherTest.bidirectionalTest({
+    test.both({
+        alphabet: "Español",
         description: "rotates Español",
-        plaintext: "Elephants",
-        ciphertext: "Vovkszngh",
-        alphabet: "Español"
+        inText: "Vovkszngh",
+        outText: "Elephants"
     });
 });
