@@ -2,7 +2,7 @@
 
 var CodeTree;
 
-CodeTree = require("../../lib/code-tree/code-tree.js");
+CodeTree = require("../../lib/code-tree/code-tree");
 
 describe("CodeTree", () => {
     var codeTree;
