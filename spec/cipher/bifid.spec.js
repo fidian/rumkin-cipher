@@ -13,9 +13,9 @@ describe("bifid", () => {
         outText: ""
     });
     test.both({
-        alphabet: "English",
+        alphabet: "English", // Z is dropped by default
         description: "Wikipedia example",
-        inText: "Hadm ab yexo!",
+        inText: "Hadm ab yexo!", // "Hadn aa zdsp!" is if you map J -> I correctly
         outText: "Flee at once!"
     });
 });

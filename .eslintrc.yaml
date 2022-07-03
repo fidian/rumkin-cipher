@@ -12,9 +12,6 @@ rules:
         - error
         - never
     array-callback-return: error
-    arrow-body-style:
-        - error
-        - always
     arrow-parens: error
     arrow-spacing: error
     block-spacing:
@@ -40,9 +37,6 @@ rules:
     global-require: off
     guard-for-in: error
     indent: error
-    init-declarations:
-        - error
-        - never
     jsx-quotes: error
     key-spacing: error
     keyword-spacing: error
@@ -91,7 +85,6 @@ rules:
     no-fallthrough: error
     no-func-assign: error
     no-implied-eval: error
-    no-inline-comments: error
     no-inner-declarations: error
     no-invalid-this: error
     no-invalid-regexp: error
@@ -137,7 +130,6 @@ rules:
     no-spaced-func: error
     no-sparse-arrays: error
     no-sync: error
-    no-ternary: error
     no-this-before-super: error
     no-throw-literal: error
     no-trailing-spaces: error
