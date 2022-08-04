@@ -1,9 +1,10 @@
 {
     "name": "@fidian/rumkin-cipher",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Cipher routines for the rumkin.com website.",
     "main": "lib/index.js",
     "scripts": {
+        "reinstall": "rm package-lock.json -r node_modules && npm install",
         "test": "jasmine",
         "watch": "nodemon --ignore node_modules --exec jasmine"
     },
@@ -19,11 +20,8 @@
     },
     "homepage": "https://github.com/fidian/rumkin-cipher#readme",
     "devDependencies": {
-        "eslint": "^3.19.0",
-        "jasmine": "^2.6.0",
-        "nodemon": "^1.11.0"
-    },
-    "dependencies": {
-        "package.json": "^2.0.1"
+        "eslint": "^8.21.0",
+        "jasmine": "^4.3.0",
+        "nodemon": "^2.0.19"
     }
 }
