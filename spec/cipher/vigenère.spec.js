@@ -33,4 +33,13 @@ describe("vigenère", () => {
         },
         outText: "CRYPTO is short for CRYPTOgraphy"
     });
+    test.both({
+        alphabet: "English",
+        description: "Invalid key",
+        inText: "ace",
+        options: {
+            key: "1"
+        },
+        outText: "ace"
+    });
 });
