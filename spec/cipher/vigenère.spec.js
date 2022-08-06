@@ -42,4 +42,14 @@ describe("vigenère", () => {
         },
         outText: "ace"
     });
+    test.both({
+        alphabet: "English",
+        description: "Wikipedia autokey",
+        inText: "qnxepvytwtwp",
+        options: {
+            key: "QUEENLY",
+            autokey: true
+        },
+        outText: "attackatdawn"
+    });
 });
