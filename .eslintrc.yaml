@@ -154,13 +154,8 @@ rules:
     no-warning-comments: warn
     no-whitespace-before-property: error
     no-with: error
-    object-curly-spacing: error
-    object-property-newline: error
     object-shorthand: error
     operator-assignment: error
-    operator-linebreak:
-        - error
-        - none
     padded-blocks:
         - error
         - never
