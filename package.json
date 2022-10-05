@@ -1,6 +1,6 @@
 {
     "name": "@fidian/rumkin-cipher",
-    "version": "0.5.2",
+    "version": "0.6.0",
     "description": "Cipher routines for the rumkin.com website.",
     "main": "lib/index.js",
     "scripts": {
@@ -20,8 +20,8 @@
     },
     "homepage": "https://github.com/fidian/rumkin-cipher#readme",
     "devDependencies": {
-        "ava": "^4.3.1",
-        "eslint": "^8.21.0",
-        "nodemon": "^2.0.19"
+        "ava": "^4.3.3",
+        "eslint": "^8.24.0",
+        "nodemon": "^2.0.20"
     }
 }
