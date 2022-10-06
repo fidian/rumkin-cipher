@@ -36,7 +36,6 @@ rules:
     generator-star-spacing: error
     global-require: off
     guard-for-in: error
-    indent: error
     jsx-quotes: error
     key-spacing: error
     keyword-spacing: error
@@ -53,7 +52,6 @@ rules:
     newline-before-return: error
     no-alert: error
     no-array-constructor: error
-    no-bitwise: error
     no-caller: error
     no-case-declarations: error
     no-catch-shadow: error
@@ -144,7 +142,6 @@ rules:
     no-unused-expressions: error
     no-unused-labels: error
     no-unused-vars: error
-    no-use-before-define: error
     no-useless-call: error
     no-useless-computed-key: error
     no-useless-concat: error
