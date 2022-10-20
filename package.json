@@ -1,6 +1,6 @@
 {
     "name": "@fidian/rumkin-cipher",
-    "version": "0.8.3",
+    "version": "0.9.0",
     "description": "Cipher routines for the rumkin.com website.",
     "main": "lib/index.js",
     "scripts": {
