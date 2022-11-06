@@ -26,7 +26,6 @@ rules:
     consistent-this: error
     constructor-super: error
     curly: error
-    default-case: error
     dot-notation: error
     eol-last: error
     eqeqeq: error
